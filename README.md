@@ -19,6 +19,8 @@ This is a simple Todo list application that demonstrates the use of Model view a
 3. The Controller:
 - It takes input from the View, tells the Model to update, and then tells the View what to show next.
 
+![alt text](image.png)
+
 ## MVC Patterns:
 1. Observer Pattern:
 - In simple terms, the Observer pattern in MVC is a system where the Model (data) acts as a "publisher" and the Views (UI) act as "subscribers". 
