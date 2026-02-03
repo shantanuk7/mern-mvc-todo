@@ -42,8 +42,6 @@ const App = () => {
       const response = await fetch(`${API_URL}/${id}`, {
         method: 'DELETE'
       });
-
-      if (!response.ok) throw new Error('Failed to delete');
       
       setTodos(todos.filter(todo => todo._id !== id));
     } catch (err) {
@@ -57,27 +55,30 @@ const App = () => {
         <h2>MVC DEMO - Todo List App</h2>
       </header>
 
-      <form onSubmit={handleAddTodo}>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <button type="submit">Add Task</button>
-      </form>
+      <div id="todo-list">
+        <form onSubmit={handleAddTodo}>
+          <input
+            type="text"
+            value={input}
+            id="todo-input"
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button type="submit">Add Task</button>
+        </form>
 
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo._id}>
-            <span>{todo.task}</span>
-            <button 
-              onClick={() => handleDelete(todo._id)}
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
+        <ul>
+          {todos.map((todo) => (
+            <li key={todo._id}>
+              <span>{todo.task}</span>
+              <button 
+                onClick={() => handleDelete(todo._id)}
+              >
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
